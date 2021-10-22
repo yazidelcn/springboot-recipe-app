@@ -1,7 +1,6 @@
 package com.elcnyazid.recipeapp.entities;
 
 import lombok.Data;
-import org.hibernate.engine.internal.Cascade;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -10,7 +9,7 @@ import java.util.Set;
 public class Recipe {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String Description;
+    private String description;
     private int prepTime;
     private int cookTime;
     private int serving;
@@ -24,12 +23,12 @@ public class Recipe {
     @OneToOne(cascade = CascadeType.ALL)
     private Notes notes;
     @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL)
-    private Set<Ingredient> ingredientsSet;
+    private Set<Ingredient> ingredients;
     @ManyToMany()
     @JoinTable(name = "recipe_category",
                joinColumns = @JoinColumn(name = "recipe_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id")
     )
-    private Set<Category> categorySet;
+    private Set<Category> categories;
 
 }
