@@ -2,12 +2,14 @@ package com.elcnyazid.recipeapp.entities;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 @Entity
 @Data
 @EqualsAndHashCode(exclude = {"recipe"})
+@NoArgsConstructor
 public class Ingredient {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
