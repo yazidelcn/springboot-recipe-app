@@ -24,7 +24,6 @@ public class HomeController {
     public String getHome(Model model) {
         Set<Recipe> recipes = recipeService.findAll();
         model.addAttribute("recipes",recipes);
-        System.out.println(recipes);
         return "index";
     }
 }
