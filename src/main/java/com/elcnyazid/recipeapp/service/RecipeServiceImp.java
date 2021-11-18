@@ -5,6 +5,7 @@ import com.elcnyazid.recipeapp.repositories.RecipeRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 @Service
 public class RecipeServiceImp implements RecipeService{
@@ -24,6 +25,9 @@ public class RecipeServiceImp implements RecipeService{
 
     @Override
     public Recipe findById(Long id) {
-        return  recipeRepository.findById(id).get();
+        Optional<Recipe> recipeOptional = recipeRepository.findById(id);
+        if(!recipeOptional.isPresent() )
+            throw new RuntimeException("Recipe not found");
+        return recipeOptional.get();
     }
 }
