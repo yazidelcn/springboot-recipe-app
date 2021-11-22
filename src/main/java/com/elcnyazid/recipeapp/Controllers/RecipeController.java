@@ -22,4 +22,9 @@ public class RecipeController {
         model.addAttribute("recipe", recipe);
         return "recipe/show";
     }
+
+    /*@GetMapping("/")
+    public String showRecipeForm(){
+        return "recipe/";
+    }*/
 }
